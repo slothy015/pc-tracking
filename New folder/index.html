@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Repair & Resell Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-laptop-code"></i>
+            <span>PC Repair Tracker</span>
+        </div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+            <button class="nav-btn" data-section="inventory">Inventory</button>
+            <button class="nav-btn" data-section="repairs">Repairs</button>
+            <button class="nav-btn" data-section="checklist">Checklist</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Active Repairs</h3>
+                    <p class="stat-number">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-box"></i>
+                    <h3>Inventory Items</h3>
+                    <p class="stat-number">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Total Sales</h3>
+                    <p class="stat-number">$0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Section -->
+        <section id="inventory" class="section">
+            <h2>Inventory Management</h2>
+            <div class="inventory-controls">
+                <button class="add-btn" id="addInventoryItem">
+                    <i class="fas fa-plus"></i> Add Item
+                </button>
+                <input type="text" id="inventorySearch" placeholder="Search inventory...">
+            </div>
+            <div class="inventory-list">
+                <!-- Inventory items will be added here dynamically -->
+            </div>
+        </section>
+
+        <!-- Repairs Section -->
+        <section id="repairs" class="section">
+            <h2>Repair Tracking</h2>
+            <div class="repair-controls">
+                <button class="add-btn" id="addRepair">
+                    <i class="fas fa-plus"></i> New Repair
+                </button>
+            </div>
+            <div class="repair-list">
+                <!-- Repair items will be added here dynamically -->
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist" class="section">
+            <h2>Repair Checklist</h2>
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Visual Inspection</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Hardware Testing</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Software Installation</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Performance Testing</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Final Quality Check</label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for adding items -->
+    <div class="modal" id="addItemModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Add New Item</h3>
+            <form id="addItemForm">
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemType">Type</label>
+                    <select id="itemType" required>
+                        <option value="pc">PC</option>
+                        <option value="component">Component</option>
+                        <option value="peripheral">Peripheral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemCondition">Condition</label>
+                    <select id="itemCondition" required>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                        <option value="refurbished">Refurbished</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Price</label>
+                    <input type="number" id="itemPrice" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
